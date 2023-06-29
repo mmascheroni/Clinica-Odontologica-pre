@@ -10,6 +10,7 @@ import com.integrador.entity.Odontologo;
 import com.integrador.entity.Paciente;
 import com.integrador.entity.Turno;
 import com.integrador.exceptions.BadRequestException;
+import com.integrador.exceptions.ResourceNotFoundException;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -48,14 +49,52 @@ public class TurnoServiceTest {
 
         TurnoDto turnoDto = turnoService.guardarTurno(new Turno(paciente, odontologo, LocalDateTime.of(LocalDate.of(2023, 9, 29), LocalTime.of(10, 20))));
 
-//        Turno turno = new Turno(paciente, odontologo, LocalDateTime.of(LocalDate.of(2023, 8, 31), LocalTime.of(10, 20)));
-//
-//        TurnoDto turnoDto = TurnoDto.fromTurno(turno);
 
         Assertions.assertNotNull(turnoDto);
         Assertions.assertNotNull(turnoDto.getId());
         Assertions.assertEquals(turnoDto.getPaciente(), pacienteDto.getNombre() + " " + pacienteDto.getApellido());
         Assertions.assertEquals(turnoDto.getOdontologo(), odontologoDto.getNombre() + " " + odontologoDto.getApellido());
     }
+
+
+    @Test
+    @Order(1)
+    void deberiaDevolverTurnoById() throws BadRequestException, ResourceNotFoundException {
+        PacienteDto pacienteDto = pacienteService.guardarPaciente(paciente);
+        OdontologoDto odontologoDto = odontologoService.guardarOdontologo(odontologo);
+
+        TurnoDto turnoDto = turnoService.guardarTurno(new Turno(paciente, odontologo, LocalDateTime.of(LocalDate.of(2023, 9, 29), LocalTime.of(10, 20))));
+
+
+
+        Assertions.assertNotNull(turnoService.buscarTurnoPorId(1L));
+    }
+
+    @Test
+    @Order(1)
+    void deberiaModificarTurno() throws BadRequestException, ResourceNotFoundException {
+        PacienteDto pacienteDto = pacienteService.guardarPaciente(paciente);
+        OdontologoDto odontologoDto = odontologoService.guardarOdontologo(odontologo);
+
+        TurnoDto turnoDto = turnoService.guardarTurno(new Turno(paciente, odontologo, LocalDateTime.of(LocalDate.of(2023, 9, 29), LocalTime.of(10, 20))));
+
+
+        Assertions.assertNotNull(turnoDto);
+        Assertions.assertNotNull(turnoDto.getId());
+        Assertions.assertEquals(turnoDto.getPaciente(), pacienteDto.getNombre() + " " + pacienteDto.getApellido());
+        Assertions.assertEquals(turnoDto.getOdontologo(), odontologoDto.getNombre() + " " + odontologoDto.getApellido());
+
+
+        paciente.setNombre("Jorge");
+        odontologo.setNombre("Luis");
+
+        TurnoDto turnoDtoModificado = turnoService.guardarTurno(new Turno(paciente, odontologo, LocalDateTime.of(LocalDate.of(2023, 9, 29), LocalTime.of(10, 20))));
+
+        Assertions.assertNotNull(turnoDtoModificado);
+        Assertions.assertNotNull(turnoDtoModificado.getId());
+        Assertions.assertEquals(turnoDtoModificado.getPaciente(), pacienteDto.getNombre() + " " + pacienteDto.getApellido());
+        Assertions.assertEquals(turnoDtoModificado.getOdontologo(), odontologoDto.getNombre() + " " + odontologoDto.getApellido());
+    }
+    
 
 }

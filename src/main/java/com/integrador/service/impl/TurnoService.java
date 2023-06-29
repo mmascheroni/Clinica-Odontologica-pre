@@ -79,7 +79,7 @@ public class TurnoService implements ITurnoService {
     public TurnoDto buscarTurnoPorId(Long id) throws ResourceNotFoundException {
         Turno turnoBuscado = turnoRepository.findById(id).orElse(null);
 
-        TurnoDto turnoDto;
+        TurnoDto turnoDto = null;
 
         if (turnoBuscado != null) {
             turnoDto = TurnoDto.fromTurno(turnoBuscado);
