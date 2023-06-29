@@ -4,6 +4,12 @@ function validarInputMayorACero(input) {
     }
 }
 
+function validarInputMayorAOcho(input) {
+    if (input.length > 8) {
+        return input;
+    }
+}
+
 function validarInputMayorACincuenta(input) {
     if (input.length > 50) {
         return input;

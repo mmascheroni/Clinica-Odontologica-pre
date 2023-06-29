@@ -77,9 +77,12 @@ btnFormAgregarPaciente.addEventListener('click', (e) => {
         }
     }
 
+    // dni
+
     // DNI
     if (
         validarInputMayorACero(inputAgregarDni.value) &&
+        !validarInputMayorAOcho(inputModificarDni.value) &&
         !validarInputMayorACincuenta(inputAgregarDni.value) &&
         validarNumeros(inputAgregarDni.value)
     ) {
@@ -88,6 +91,10 @@ btnFormAgregarPaciente.addEventListener('click', (e) => {
         if (!validarInputMayorACero(inputAgregarDni.value)) {
             divErrorAgregarPaciente.innerHTML += `
                 <p class="error">⚠️ El dni no puede quedar vacio</p>
+            `;
+        } else if (validarInputMayorAOcho(inputModificarDni.value)) {
+            divErrorModificarPaciente.innerHTML += `
+                <p class="error">⚠️ El dni no puede tener mas de 8 caracteres</p>
             `;
         } else if (validarInputMayorACincuenta(inputAgregarDni.value)) {
             divErrorAgregarPaciente.innerHTML += `
@@ -477,6 +484,7 @@ btnFormModificarPaciente.addEventListener('click', (e) => {
     // DNI
     if (
         validarInputMayorACero(inputModificarDni.value) &&
+        !validarInputMayorAOcho(inputModificarDni.value) &&
         !validarInputMayorACincuenta(inputModificarDni.value) &&
         validarNumeros(inputModificarDni.value)
     ) {
@@ -485,6 +493,10 @@ btnFormModificarPaciente.addEventListener('click', (e) => {
         if (!validarInputMayorACero(inputModificarDni.value)) {
             divErrorModificarPaciente.innerHTML += `
                 <p class="error">⚠️ El dni no puede quedar vacio</p>
+            `;
+        } else if (validarInputMayorAOcho(inputModificarDni.value)) {
+            divErrorModificarPaciente.innerHTML += `
+                <p class="error">⚠️ El dni no puede tener mas de 8 caracteres</p>
             `;
         } else if (validarInputMayorACincuenta(inputModificarDni.value)) {
             divErrorModificarPaciente.innerHTML += `
