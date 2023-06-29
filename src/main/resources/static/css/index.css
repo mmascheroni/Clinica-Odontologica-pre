@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f7dedef5;
+}
+
+/*************************/
+/*       Header          */
+/*************************/
+
+li {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.2em;
+    list-style: none;
+    margin-right: 25px;
+}
+
+a {
+    color: #222;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+a:hover {
+    border-bottom: 2px solid #fff;
+    opacity: 70%;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+header {
+    align-items: center;
+    background-color: #634b4bf5;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+}
+
+h1,
+h2 {
+    margin: 0;
+}
+
+/*************************/
+/*    Section - Image    */
+/*************************/
+
+.bg-image {
+    background-image: url('./../assets/odontologia.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 465px;
+}
+
+/*************************/
+/*        Footer         */
+/*************************/
+
+footer {
+    align-items: center;
+    background-color: #634b4bf5;
+    display: flex;
+    justify-content: center;
+}
+
+footer > p {
+    font-weight: bold;
+}
