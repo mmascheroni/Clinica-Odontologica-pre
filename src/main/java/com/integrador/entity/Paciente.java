@@ -25,7 +25,7 @@ public class Paciente {
     private String apellido;
 
     @Pattern(regexp = "\\d+", message = "El campo dni sólo admite caracteres numéricos")
-    @Size(min = 5, max = 8, message = "La cedula debe ser hasta 8 caracteres")
+    @Size(max = 8, message = "La cedula debe ser hasta 8 caracteres")
     @NotBlank(message = "Debe especificarse el dni del paciente")
     private String dni;
 

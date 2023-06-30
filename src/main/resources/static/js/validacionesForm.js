@@ -42,7 +42,7 @@ function validarFecha(fecha) {
 
     // console.log('Fecha Actual: ' + fechaActual);
     // Comparar las fechas
-    if (fechaActual <= fechaSeleccionada) {
+    if (fechaActual.getDay() <= fechaSeleccionada.getDay()) {
         return fechaSeleccionada;
     }
 }

@@ -6,6 +6,7 @@ import com.integrador.entity.Odontologo;
 import com.integrador.exceptions.ResourceNotFoundException;
 import com.integrador.repository.OdontologoRepository;
 import com.integrador.service.IOdontologoService;
+import com.integrador.utils.JsonPrinter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
