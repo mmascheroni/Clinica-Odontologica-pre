@@ -1,6 +1,5 @@
 package com.integrador.controller;
 
-import com.integrador.dto.OdontologoDto;
 import com.integrador.dto.PacienteDto;
 import com.integrador.entity.Paciente;
 import com.integrador.exceptions.ResourceNotFoundException;
@@ -33,11 +32,11 @@ public class PacienteController {
 
     // GET
     @GetMapping("/{id}")
-    public ResponseEntity<PacienteDto> buscarPacientePorId(@PathVariable Long id) throws ResourceNotFoundException  {
+    public ResponseEntity<PacienteDto> buscarPacientePorId(@PathVariable Long id) throws ResourceNotFoundException {
         ResponseEntity<PacienteDto> respuesta;
         PacienteDto pacienteDto = pacienteService.buscarPacientePorId(id);
 
-        if (pacienteDto != null ) {
+        if (pacienteDto != null) {
             respuesta = new ResponseEntity<>(pacienteDto, null, HttpStatus.OK);
             return respuesta;
         } else {

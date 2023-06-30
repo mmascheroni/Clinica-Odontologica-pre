@@ -3,7 +3,6 @@ package com.integrador.service.impl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.integrador.dto.OdontologoDto;
 import com.integrador.entity.Odontologo;
-import com.integrador.exceptions.BadRequestException;
 import com.integrador.exceptions.ResourceNotFoundException;
 import com.integrador.repository.OdontologoRepository;
 import com.integrador.service.IOdontologoService;
@@ -51,7 +50,7 @@ public class OdontologoService implements IOdontologoService {
     }
 
     @Override
-    public OdontologoDto buscarOdontologoPorId(Long id)  {
+    public OdontologoDto buscarOdontologoPorId(Long id) {
         Odontologo odontologo = odontologoRepository.findById(id).orElse(null);
         OdontologoDto odontologoDto = null;
 
@@ -80,7 +79,7 @@ public class OdontologoService implements IOdontologoService {
             LOGGER.error("No se ha encontrado registro de odontologo buscado por criterio de busqueda ingresado  " + criterio);
         }
 
-            return odontologosDtos;
+        return odontologosDtos;
 
     }
 

@@ -12,7 +12,7 @@ public interface IPacienteService {
 
     List<PacienteDto> listarPacientes();
 
-    PacienteDto buscarPacientePorId(Long id) ;
+    PacienteDto buscarPacientePorId(Long id);
 
     List<PacienteDto> buscarPacientePorCriterio(String criterio);
 

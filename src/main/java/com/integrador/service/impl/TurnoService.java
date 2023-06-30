@@ -1,11 +1,9 @@
 package com.integrador.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.integrador.dto.DomicilioDto;
 import com.integrador.dto.OdontologoDto;
 import com.integrador.dto.PacienteDto;
 import com.integrador.dto.TurnoDto;
-import com.integrador.entity.Paciente;
 import com.integrador.entity.Turno;
 import com.integrador.exceptions.BadRequestException;
 import com.integrador.exceptions.ResourceNotFoundException;
@@ -49,7 +47,7 @@ public class TurnoService implements ITurnoService {
                 LOGGER.error("El paciente y el odontologo no se encuentra en la base de datos");
                 throw new BadRequestException("El paciente y el odontologo no se encuentra en la base de datos");
             }
-            if (odontologo == null){
+            if (odontologo == null) {
                 LOGGER.error("El odontologo no se encuentra en la base de datos");
                 throw new BadRequestException("El odontologo no se encuentra en la base de datos");
             }
@@ -125,7 +123,7 @@ public class TurnoService implements ITurnoService {
                 LOGGER.error("El paciente y el odontologo no se encuentra en la base de datos");
                 throw new ResourceNotFoundException("El paciente y el odontologo no se encuentra en la base de datos");
             }
-            if (odontologo == null){
+            if (odontologo == null) {
                 LOGGER.error("El odontologo no se encuentra en la base de datos");
                 throw new ResourceNotFoundException("El odontologo no se encuentra en la base de datos");
             }

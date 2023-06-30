@@ -1,6 +1,5 @@
 package com.integrador.service;
 
-import com.integrador.dto.PacienteDto;
 import com.integrador.dto.TurnoDto;
 import com.integrador.entity.Turno;
 import com.integrador.exceptions.BadRequestException;

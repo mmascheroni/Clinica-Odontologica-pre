@@ -1,136 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Odontologos</title>
-        <link rel="stylesheet" href="./css/odontologos_pacientes_turnos.css" />
-    </head>
-    <body>
-        <header>
-            <h1>Odontologos 🧑🏼‍⚕️</h1>
-            <nav>
-                <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./pacientes.html">Pacientes</a></li>
-                    <li><a href="./turnos.html">Turnos</a></li>
-                </ul>
-            </nav>
-        </header>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Odontologos</title>
+    <link rel="stylesheet" href="./css/odontologos_pacientes_turnos.css"/>
+</head>
+<body>
+<header>
+    <h1>Odontologos 🧑🏼‍⚕️</h1>
+    <nav>
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./pacientes.html">Pacientes</a></li>
+            <li><a href="./turnos.html">Turnos</a></li>
+        </ul>
+    </nav>
+</header>
 
-        <section class="buscador-odontologo">
-            <h2 class="section-buscador--titulo">Buscar odontologo</h2>
+<section class="buscador-odontologo">
+    <h2 class="section-buscador--titulo">Buscar odontologo</h2>
 
-            <form id="form-search" action="#">
-                <input
-                    type="search"
-                    class="input-search--odontologos"
-                    placeholder="Ingrese Nombre, Apellido o dni..."
-                />
-                <button id="btn-search--odontologos" type="button">🔍</button>
-            </form>
-        </section>
+    <form id="form-search" action="#">
+        <input
+                type="search"
+                class="input-search--odontologos"
+                placeholder="Ingrese Nombre, Apellido o dni..."
+        />
+        <button id="btn-search--odontologos" type="button">🔍</button>
+    </form>
+</section>
 
-        <section class="section-listado">
-            <h2>Listado:</h2>
+<section class="section-listado">
+    <h2>Listado:</h2>
 
-            <table id="odontologos-tabla">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Matricula</th>
-                        <th>
-                            <button
-                                class="btn-refresh btn-refresh--odontologos"
-                            >
-                                🔄️
-                            </button>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="tbody-odontologos"></tbody>
-            </table>
-            <button class="btn-agregar btn-agregar--odontologo">
-                <a href="#agregar-odontologo">Agregar Odontologo</a>
-            </button>
-        </section>
+    <table id="odontologos-tabla">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Matricula</th>
+            <th>
+                <button
+                        class="btn-refresh btn-refresh--odontologos"
+                >
+                    🔄️
+                </button>
+            </th>
+        </tr>
+        </thead>
+        <tbody class="tbody-odontologos"></tbody>
+    </table>
+    <button class="btn-agregar btn-agregar--odontologo">
+        <a href="#agregar-odontologo">Agregar Odontologo</a>
+    </button>
+</section>
 
-        <section
-            id="modificar-odontologo"
-            class="section-form form-modificar--odontologo"
-        >
-            <h2>Modificar Odontologo</h2>
+<section
+        id="modificar-odontologo"
+        class="section-form form-modificar--odontologo"
+>
+    <h2>Modificar Odontologo</h2>
 
-            <form class="modificar-form--odontologo form-complete">
-                <label for="id">Id:</label>
-                <input type="text" class="inputId" readonly />
+    <form class="modificar-form--odontologo form-complete">
+        <label for="id">Id:</label>
+        <input type="text" class="inputId" readonly/>
 
-                <label>Nombre:</label>
-                <input
-                    type="text"
-                    placeholder="Nombre"
-                    class="input-nombre--modificarOdontologo"
-                />
+        <label>Nombre:</label>
+        <input
+                type="text"
+                placeholder="Nombre"
+                class="input-nombre--modificarOdontologo"
+        />
 
-                <label>Apellido:</label>
-                <input
-                    type="text"
-                    placeholder="Apellido"
-                    class="input-apellido--modificarOdontologo"
-                />
+        <label>Apellido:</label>
+        <input
+                type="text"
+                placeholder="Apellido"
+                class="input-apellido--modificarOdontologo"
+        />
 
-                <label>Matricula:</label>
-                <input
-                    type="text"
-                    placeholder="Matricula"
-                    class="input-matricula--modificarOdontologo"
-                />
+        <label>Matricula:</label>
+        <input
+                type="text"
+                placeholder="Matricula"
+                class="input-matricula--modificarOdontologo"
+        />
 
-                <button class="btn-form--modificarOdontologo">Modificar</button>
-            </form>
-            <div id="response-modificar--odontologo"></div>
-        </section>
+        <button class="btn-form--modificarOdontologo">Modificar</button>
+    </form>
+    <div id="response-modificar--odontologo"></div>
+</section>
 
-        <section
-            id="agregar-odontologo"
-            class="section-form form-agregar--odontologo"
-        >
-            <h2>Agregar Odontologo</h2>
+<section
+        id="agregar-odontologo"
+        class="section-form form-agregar--odontologo"
+>
+    <h2>Agregar Odontologo</h2>
 
-            <form class="agregar-form--odontologo form-complete">
-                <label>Nombre:</label>
-                <input
-                    class="input-nombre--agregarOdontologo"
-                    type="text"
-                    placeholder="Nombre"
-                />
+    <form class="agregar-form--odontologo form-complete">
+        <label>Nombre:</label>
+        <input
+                class="input-nombre--agregarOdontologo"
+                type="text"
+                placeholder="Nombre"
+        />
 
-                <label>Apellido:</label>
-                <input
-                    type="text"
-                    placeholder="Apellido"
-                    class="input-apellido--agregarOdontologo"
-                />
+        <label>Apellido:</label>
+        <input
+                type="text"
+                placeholder="Apellido"
+                class="input-apellido--agregarOdontologo"
+        />
 
-                <label>Matricula:</label>
-                <input
-                    type="text"
-                    placeholder="Matricula"
-                    class="input-matricula--agregarOdontologo"
-                />
+        <label>Matricula:</label>
+        <input
+                type="text"
+                placeholder="Matricula"
+                class="input-matricula--agregarOdontologo"
+        />
 
-                <button class="btn-form--agregarOdontologo">Agregar</button>
-            </form>
-            <div id="response-agregar--odontologo"></div>
-        </section>
+        <button class="btn-form--agregarOdontologo">Agregar</button>
+    </form>
+    <div id="response-agregar--odontologo"></div>
+</section>
 
-        <footer>
-            <p>Trabajo Integrador - Clinica Odontologica - Backend I</p>
-        </footer>
+<footer>
+    <p>Trabajo Integrador - Clinica Odontologica - Backend I</p>
+</footer>
 
-        <script src="./js/selectoresOdontologos.js"></script>
-        <script src="./js/validacionesForm.js"></script>
-        <script src="./js/odontologos.js"></script>
-    </body>
+<script src="./js/selectoresOdontologos.js"></script>
+<script src="./js/validacionesForm.js"></script>
+<script src="./js/odontologos.js"></script>
+</body>
 </html>

@@ -1,6 +1,5 @@
 package com.integrador.repository;
 
-import com.integrador.entity.Paciente;
 import com.integrador.entity.Turno;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

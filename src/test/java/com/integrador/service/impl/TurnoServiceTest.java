@@ -1,7 +1,6 @@
 package com.integrador.service.impl;
 
 
-
 import com.integrador.dto.OdontologoDto;
 import com.integrador.dto.PacienteDto;
 import com.integrador.dto.TurnoDto;
@@ -35,7 +34,7 @@ public class TurnoServiceTest {
 
     @BeforeAll
     public static void init() {
-        paciente = new Paciente("Mauro", "Mascheroni", "12345678", LocalDate.of(2023, 07,31), new Domicilio("8 de octubre", 2830, "Montevideo", "La Blanqueada"));
+        paciente = new Paciente("Mauro", "Mascheroni", "12345678", LocalDate.of(2023, 07, 31), new Domicilio("8 de octubre", 2830, "Montevideo", "La Blanqueada"));
 
         odontologo = new Odontologo("Sergio", "Marquez", "AAA001");
     }
@@ -66,9 +65,9 @@ public class TurnoServiceTest {
         TurnoDto turnoDto = turnoService.guardarTurno(new Turno(paciente, odontologo, LocalDateTime.of(LocalDate.of(2023, 9, 29), LocalTime.of(10, 20))));
 
 
-
         Assertions.assertNotNull(turnoService.buscarTurnoPorId(1L));
     }
+
 
     @Test
     @Order(1)
@@ -76,25 +75,17 @@ public class TurnoServiceTest {
         PacienteDto pacienteDto = pacienteService.guardarPaciente(paciente);
         OdontologoDto odontologoDto = odontologoService.guardarOdontologo(odontologo);
 
-        TurnoDto turnoDto = turnoService.guardarTurno(new Turno(paciente, odontologo, LocalDateTime.of(LocalDate.of(2023, 9, 29), LocalTime.of(10, 20))));
+        Turno turno = new Turno(paciente, odontologo, LocalDateTime.of(LocalDate.of(2023, 9, 29), LocalTime.of(10, 20)));
+        TurnoDto turnoDto = turnoService.guardarTurno(turno);
+        turno.setFecha(LocalDateTime.of(LocalDate.of(2023, 9, 29), LocalTime.of(10, 10)));
+
+        turnoDto = turnoService.actualizarTurno(turno);
 
 
-        Assertions.assertNotNull(turnoDto);
-        Assertions.assertNotNull(turnoDto.getId());
-        Assertions.assertEquals(turnoDto.getPaciente(), pacienteDto.getNombre() + " " + pacienteDto.getApellido());
-        Assertions.assertEquals(turnoDto.getOdontologo(), odontologoDto.getNombre() + " " + odontologoDto.getApellido());
+        Assertions.assertEquals(turnoDto.getFecha(), LocalDateTime.of(LocalDate.of(2023, 9, 29), LocalTime.of(10, 10)));
 
 
-        paciente.setNombre("Jorge");
-        odontologo.setNombre("Luis");
-
-        TurnoDto turnoDtoModificado = turnoService.guardarTurno(new Turno(paciente, odontologo, LocalDateTime.of(LocalDate.of(2023, 9, 29), LocalTime.of(10, 20))));
-
-        Assertions.assertNotNull(turnoDtoModificado);
-        Assertions.assertNotNull(turnoDtoModificado.getId());
-        Assertions.assertEquals(turnoDtoModificado.getPaciente(), pacienteDto.getNombre() + " " + pacienteDto.getApellido());
-        Assertions.assertEquals(turnoDtoModificado.getOdontologo(), odontologoDto.getNombre() + " " + odontologoDto.getApellido());
     }
-    
+
 
 }

@@ -1,6 +1,5 @@
 package com.integrador.controller;
 
-import com.integrador.dto.OdontologoDto;
 import com.integrador.dto.TurnoDto;
 import com.integrador.entity.Turno;
 import com.integrador.exceptions.BadRequestException;
@@ -39,7 +38,7 @@ public class TurnoController {
 
     // GET
     @GetMapping("/turno")
-    public List<TurnoDto> buscarTurnoPorCriterio(@RequestParam String criterio)  {
+    public List<TurnoDto> buscarTurnoPorCriterio(@RequestParam String criterio) {
         List<TurnoDto> turnosDtos = turnoService.buscarTurnoPorCriterio(criterio);
 
         return turnosDtos;

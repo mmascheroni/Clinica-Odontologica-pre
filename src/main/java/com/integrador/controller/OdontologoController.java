@@ -2,15 +2,12 @@ package com.integrador.controller;
 
 import com.integrador.dto.OdontologoDto;
 import com.integrador.entity.Odontologo;
-import com.integrador.exceptions.BadRequestException;
 import com.integrador.exceptions.ResourceNotFoundException;
 import com.integrador.service.IOdontologoService;
 import jakarta.validation.Valid;
-import org.apache.juli.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,7 +30,7 @@ public class OdontologoController {
         ResponseEntity<OdontologoDto> respuesta;
         OdontologoDto odontologoDto = odontologoService.buscarOdontologoPorId(id);
 
-        if (odontologoDto != null ) {
+        if (odontologoDto != null) {
             respuesta = new ResponseEntity<>(odontologoDto, null, HttpStatus.OK);
             return respuesta;
         } else {
@@ -43,7 +40,7 @@ public class OdontologoController {
 
     // GET
     @GetMapping("/odontologo")
-    public List<OdontologoDto> buscarOdontologoPorCriterio(@RequestParam String criterio)  {
+    public List<OdontologoDto> buscarOdontologoPorCriterio(@RequestParam String criterio) {
         List<OdontologoDto> odontologoDtos = odontologoService.buscarOdontologoPorCriterio(criterio);
 
         return odontologoDtos;
@@ -51,7 +48,7 @@ public class OdontologoController {
 
     // POST
     @PostMapping("/registrar")
-    public ResponseEntity<OdontologoDto> registarOdontologo(@Valid @RequestBody Odontologo odontologo)  {
+    public ResponseEntity<OdontologoDto> registarOdontologo(@Valid @RequestBody Odontologo odontologo) {
         return ResponseEntity.status(HttpStatus.CREATED).body(odontologoService.guardarOdontologo(odontologo));
     }
 

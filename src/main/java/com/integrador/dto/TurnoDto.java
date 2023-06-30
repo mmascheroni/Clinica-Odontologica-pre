@@ -3,7 +3,6 @@ package com.integrador.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.integrador.entity.Turno;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @JsonIgnoreProperties(ignoreUnknown = true)

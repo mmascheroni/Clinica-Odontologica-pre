@@ -2,9 +2,7 @@ package com.integrador.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.integrador.dto.DomicilioDto;
-import com.integrador.dto.OdontologoDto;
 import com.integrador.dto.PacienteDto;
-import com.integrador.entity.Odontologo;
 import com.integrador.entity.Paciente;
 import com.integrador.exceptions.ResourceNotFoundException;
 import com.integrador.repository.PacienteRepository;
